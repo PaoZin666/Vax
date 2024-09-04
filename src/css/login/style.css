@@ -1,0 +1,157 @@
+body {
+  font-family: "Nunito", system-ui;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #dbdbdb;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  height: 85vh;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-section {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000001a;
+  overflow: hidden;
+}
+
+.image-section img {
+  height: -webkit-fill-available;
+}
+
+.overlay {
+  position: absolute;
+  background:rgba(0, 44, 177, 0.65);
+  width: 40%;
+  height: 100%;
+  left: 0;
+}
+
+.login-section {
+  flex: 1 1 0%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+}
+
+.logo img {
+  width: 610px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 30px;
+}
+
+a{
+  display: flex;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #666;
+  gap: 3px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004494;
+}
+
+.alternative-login{
+  padding: 0 0 20px;
+}
+
+.alternative-login h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.alternative-login ul {
+  list-style: none;
+  padding: 0;
+}
+
+.alternative-login li {
+  margin-bottom: 10px;
+}
+
+.alternative-login a {
+  text-decoration: none;
+  color: #000000;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.help-links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.help-links a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #1351B4;
+}

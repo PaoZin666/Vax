@@ -1,0 +1,207 @@
+:root {
+    --back-color-light: #ffffff;
+    --primary-color-light: #191c53;
+    --secondary-color-light: #002cb1;
+    --border-color-light: #00238d;
+    --bg-color-light: #ffffff00;
+    --back-color-dark: #121212;
+    --primary-color-dark: #2d2d2d;
+    --secondary-color-dark: #717171;
+    --border-color-dark: #4e4e4e;
+    --bg-color-dark: #a9a9a936;
+}
+
+body {
+    width: 100vw;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    transition: background-color 0.6s, color 0.6s;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+p,
+a,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+}
+
+header {
+    transition: background-color 0.6s, color 0.6s;
+    background-color: var(--primary-color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 230px;
+}
+
+.cabecalho .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.cabecalho nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 0px 3.5vw 5px 5px;
+}
+.cabecalho nav li {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    background: var(--bg-color-light);
+    border: rgba(0, 0, 0, 0.2) solid 4px;
+    border-radius: 20px;
+    padding: 5px 8px;
+    transition: background-color 0.6s;
+}
+.cabecalho nav li:hover {
+    background-color: var(--secondary-color-light);
+}
+
+.logotipo {
+    padding: 0px 3.5vw 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.line{
+    background-color: var(--primary-color-light);
+    height: 100vh;
+    width: 3.5vw;
+    position: absolute;
+    right: 0;
+}
+main {
+    height: 100vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.container {
+    transition: background-color 0.6s, color 0.6s;
+    height: auto;
+    width: 90vw;
+    position: relative;
+    top: 4px;
+    padding: 10px 8px;
+    background: linear-gradient(180deg, var(--secondary-color-light) 0%, var(--primary-color-light) 85%);
+    border-radius: 32px ;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+i {
+    transition: background-color 0.6s, color 0.6s;
+    display: flex;
+    background: var(--border-color-light);
+    border: 5px solid #00022457;
+    border-radius: 25px;
+    width: 250px;
+    height: 38px;
+    align-items: center;
+    justify-content: space-around;
+}
+section {
+    display: flex;
+    justify-content: center;
+}
+input[type="search"] {
+    color: #fff;
+    background: none;
+    border: none;
+    width: 200px;
+    height: 20px;
+}
+input[type="search"]:focus {
+    outline: none;
+}
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+#zoom-image {
+    border-radius: 25px;
+    width: 100%;
+    transition: transform 0.3s ease-out;
+}
+
+.loc {
+    transition: background-color 0.6s, color 0.6s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    background: var(--secondary-color-light);
+    border: rgba(0, 0, 0, 0.45) solid 3px;
+    border-radius: 30px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.65);
+}
+.loc img {
+    width: 32px;
+    height: 32px;
+    border-radius: 30px;
+}
+
+.text {
+    padding: 0 15px 10px 15px;
+}
+.text h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+body.light-mode {
+    background-color: var(--back-color-light);
+}
+body.dark-mode {
+    background-color: var(--back-color-dark);
+
+}
+
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+#dark-mode-toggle img {
+    width: 24px;
+    height: 24px;
+}

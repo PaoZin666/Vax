@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+  <link href="./src/css/reset.css" rel="stylesheet" type="text/css">
+  <link href="./src/css/login/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./src/css/login/responsive.css">
+</head>
+
+<body>
+  <div class="container">
+      <div class="image-section">
+          <img src="./src/img/vacina.jpg">
+          <div class="overlay"></div>
+      </div>
+      <div class="login-section">
+          <div class="logo">
+              <img src="./src/img/vax.png">
+          </div>
+          <h2>Identifique-se com:</h2>
+          <form action="#" method="POST">
+            <label for="cpf"><img src="./src/icone/id-card-solid.png">Número do CPF</label>
+              <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF">
+              <button type="submit">Continuar</button>
+          </form>
+          <div class="alternative-login">
+              <h3>Outras opções de identificação:</h3>
+              <ul>
+                  <li><a href="#" style="color: #008C32;"><img src="./src/icone/InternetBanking-green.png">Login com seu banco</a></li>
+                  <li><a href="#"><img src="./src/icone/qrcode.png">Login com QR code</a></li>
+              </ul>
+          </div>
+          <div class="help-links">
+              <a href="#"> <img src="./src/icone/circle-question-solid.svg" width="21" height="21"> Está com dúvidas e precisa de ajuda?</a>
+              <a href="#">Termo de Uso e Aviso de Privacidade</a>
+          </div>
+      </div>
+  </div>
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var date = document.getElementById('date');
+      var username = document.getElementById('username');
+      var email = document.getElementById('email');
+      var password = document.getElementById('password');
+
+      document.getElementById('usernameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+      document.getElementById('dateError').textContent = '';
+
+      var isValid = true;
+
+      if (!username.value) {
+        document.getElementById('usernameError').textContent = 'Por favor, preencha o nome de usuário.';
+        isValid = false;
+      }
+
+      if (!email.value) {
+        document.getElementById('emailError').textContent = 'Por favor, preencha o email.';
+        isValid = false;
+      } else if (!isValidEmail(email.value)) {
+        document.getElementById('emailError').textContent = 'Por favor, insira um email válido.';
+        isValid = false;
+      }
+
+      if (!password.value) {
+        document.getElementById('passwordError').textContent = 'Por favor, preencha a senha.';
+        isValid = false;
+      } else if (password.value.length < 8) {
+        document.getElementById('passwordError').textContent = 'A senha deve ter pelo menos 8 caracteres.';
+        isValid = false;
+      }
+
+      if (!date.value) {
+        document.getElementById('dateError').textContent = 'Por favor, preencha a data de nascimento.';
+        isValid = false;
+      } else if (getAge(date.value) < 13) {
+        document.getElementById('dateError').textContent = 'Você precisa ter pelo menos 13 anos para se cadastrar.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        armazenarIdUsuario();
+        window.location.href = './src/SPOTIFY/musicas.html';
+      }
+    });
+
+    function isValidEmail(email) {
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function getAge(date) {
+      var today = new Date();
+      var birthDate = new Date(date);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
+
+    function armazenarIdUsuario() {
+      const idUsuario = document.getElementById('username').value;
+      sessionStorage.setItem('idUsuario', idUsuario);
+    }
+  </script>
+</body>
+</html>
