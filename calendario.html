@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Vacinação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .calendar-container {
+            text-align: center;
+            width: 700px;
+        }
+        .year-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .year-navigation button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .year-navigation button:hover {
+            background-color: #0056b3;
+        }
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .month {
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .month:hover {
+            background-color: #e9ecef;
+        }
+        .month-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            width: 100%;
+            font-weight: bold;
+        }
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            width: 100%;
+            grid-auto-rows: minmax(20px, auto);
+        }
+        .day {
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .day:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calendar-container">
+    <div class="year-navigation">
+        <button id="prevYear">&lt;</button>
+        <span id="yearDisplay">2024</span>
+        <button id="nextYear">&gt;</button>
+    </div>
+    <div class="months-grid" id="calendarGrid">
+        <!-- Os meses serão gerados dinamicamente -->
+    </div>
+</div>
+
+<script>
+    let currentYear = 2024;
+    const monthsNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    const daysOfWeek = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+    const yearDisplay = document.getElementById('yearDisplay');
+    const prevYearButton = document.getElementById('prevYear');
+    const nextYearButton = document.getElementById('nextYear');
+    const calendarGrid = document.getElementById('calendarGrid');
+
+    function updateYearDisplay() {
+        yearDisplay.textContent = currentYear;
+        generateCalendar();
+    }
+
+    prevYearButton.addEventListener('click', () => {
+        currentYear--;
+        updateYearDisplay();
+    });
+
+    nextYearButton.addEventListener('click', () => {
+        currentYear++;
+        updateYearDisplay();
+    });
+
+    function generateCalendar() {
+        calendarGrid.innerHTML = '';
+        for (let month = 0; month < 12; month++) {
+            const monthDiv = document.createElement('div');
+            monthDiv.classList.add('month');
+
+            const monthTitle = document.createElement('div');
+            monthTitle.classList.add('month-title');
+            monthTitle.textContent = monthsNames[month];
+            monthDiv.appendChild(monthTitle);
+
+            const weekdaysDiv = document.createElement('div');
+            weekdaysDiv.classList.add('weekdays');
+            daysOfWeek.forEach(day => {
+                const dayDiv = document.createElement('div');
+                dayDiv.textContent = day;
+                weekdaysDiv.appendChild(dayDiv);
+            });
+            monthDiv.appendChild(weekdaysDiv);
+
+            const daysDiv = document.createElement('div');
+            daysDiv.classList.add('days');
+            
+            const firstDay = new Date(currentYear, month, 1).getDay();
+            const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
+            
+            // Preencher os dias em branco antes do início do mês
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('day');
+                daysDiv.appendChild(emptyDiv);
+            }
+
+            // Preencher os dias do mês
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+                dayDiv.textContent = day;
+                dayDiv.addEventListener('click', () => {
+                    alert(`Data de vacinação: ${day} de ${monthsNames[month]} de ${currentYear}`);
+                    // Aqui você pode adicionar funcionalidade para marcar a data de vacinação
+                });
+                daysDiv.appendChild(dayDiv);
+            }
+
+            monthDiv.appendChild(daysDiv);
+            calendarGrid.appendChild(monthDiv);
+        }
+    }
+
+    // Inicializa o calendário
+    updateYearDisplay();
+</script>
+
+</body>
+</html>

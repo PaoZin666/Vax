@@ -1,3 +1,16 @@
+:root {
+  --back-color-light: white;
+  --back-color-dark: #252a2f;
+  --text-color-light: #333;
+  --text-color-dark: #e7e7e7;
+  --button-color-light: #0056b3;
+  --button-color-dark: #7b7b7b;
+  --hover-color-light:#004494;
+  --hover-color-dark:#494949;
+  --light-mode-bg:#66666640;
+  --dark-mode-bg:#00000066;
+}
+
 body {
   font-family: "Nunito", system-ui;
   font-weight: 300;
@@ -10,12 +23,16 @@ body {
   width: 100vw;
   background-color: #dbdbdb;
 }
+body::-webkit-scrollbar {
+  width: 0px;
+}
 
 .container {
   display: flex;
   width: 90vw;
   height: 85vh;
-  background-color: white;
+  transition: background-color 0.6s, color 0.6s;
+  background-color: var(--back-color-light);
   box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
   border-radius: 8px;
   overflow: hidden;
@@ -42,6 +59,13 @@ body {
   height: 100%;
   left: 0;
 }
+.overlay2 {
+  position: absolute;
+  box-shadow: rgb(0 0 0) -10px 0px 20px;
+  width: 2%;
+  height: 100%;
+  right: -20px;
+}
 
 .login-section {
   flex: 1 1 0%;
@@ -54,16 +78,17 @@ body {
   align-items: stretch;
 }
 
-.logo img {
-  width: 610px;
+.marca img {
+  width: 520px;
   margin-bottom: 20px;
 }
 
 h2 {
   margin: 0;
-  font-size: 24px;
-  color: #333;
+  font-size: 32px;
   margin-bottom: 20px;
+  color: var(--text-color-light);
+  transition: background-color 0.6s, color 0.6s;
 }
 
 form {
@@ -80,44 +105,51 @@ a{
 label {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #666;
   gap: 3px;
+  color: var(--text-color-light);
+  transition: background-color 0.6s, color 0.6s;
 }
 
 input[type="text"] {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 5px solid #85858575;
+  border-radius: 12px;
   margin-bottom: 20px;
   font-size: 16px;
+  background: #8383833d;
 }
 
 button {
-  padding: 10px;
-  background-color: #0056b3;
+  padding: 12px;
+  background-color: var(--button-color-light);
   color: white;
   border: none;
   border-radius: 25px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.4s;
 }
 
 button:hover {
-  background-color: #004494;
+  background-color: var(--hover-color-light);
 }
 
 .alternative-login{
   padding: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .alternative-login h3 {
-  font-size: 18px;
-  color: #333;
+  font-size: 24px;
   margin-bottom: 10px;
+  color: var(--text-color-light);
+  transition: background-color 0.6s, color 0.6s;
 }
 
 .alternative-login ul {
@@ -131,9 +163,10 @@ button:hover {
 
 .alternative-login a {
   text-decoration: none;
-  color: #000000;
+  color: var(--text-color-light);
+  transition: background-color 0.6s, color 0.6s;
   gap: 4px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -141,17 +174,53 @@ button:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: flex-start;
   align-items: center;
+  align-content: center;
+  gap: 5px;
 }
 
 .help-links a {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   gap: 5px;
   margin-bottom: 5px;
   text-decoration: none;
-  color: #1351B4;
+  color: var(--button-color-light);
+}
+.help-links a:hover {
+  text-decoration: underline var(--hover-color-light);
+}
+.quest{
+  transition: 0.5s ease-in-out;
+}
+.quest:hover{
+  transform: scale(1.2);
+}
+
+.container.light-mode {
+  background-color: var(--back-color-light);
+}
+.container.dark-mode {
+  background-color: var(--back-color-dark);
+}
+
+#dark-mode-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light-mode-bg);
+  transition: background-color 0.6s, color 0.6s;
+  border: none;
+  border-radius: 32px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+#dark-mode-toggle img {
+  width: 24px;
+  height: 24px;
 }

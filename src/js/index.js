@@ -1,10 +1,3 @@
-document.addEventListener('scroll', function() {
-    const image = document.getElementById('zoom-image');
-    const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    const zoomLevel = 1 - scrollPercentage * 0.03;
-    image.style.transform = `scale(${zoomLevel})`;
-});
-
 document.addEventListener("DOMContentLoaded", function() {
     const botaoList = document.getElementById("list");
     const menuNav = document.querySelector(".cabecalho nav");
@@ -26,20 +19,22 @@ toggleButton.addEventListener('click', () => {
     const root = document.documentElement;
 
     const isDarkMode = document.body.classList.contains('dark-mode');
-    
+
     if (isDarkMode) {
-        root.style.setProperty('--back-color-light', '#ffff');
-        root.style.setProperty('--primary-color-light', '#191c53');
-        root.style.setProperty('--secondary-color-light', '#002cb1');
+        root.style.setProperty('--back-color-light', '#dbdbdb');
         root.style.setProperty('--border-color-light', '#00238d');
-        root.style.setProperty('--bg-color-light', '#ffffff00');
+        root.style.setProperty('--text-color-light','#333');
+        root.style.setProperty('--container-color-light','#fff');
+        root.style.setProperty('--button-color-light','#0056b3');
+        root.style.setProperty('--hover-color-light','#004494');
         logo.src = './src/img/vax.png';
     } else {
         root.style.setProperty('--back-color-light', '#121212');
-        root.style.setProperty('--primary-color-light', '#2d2d2d');
-        root.style.setProperty('--secondary-color-light', '#717171');
         root.style.setProperty('--border-color-light', '#4e4e4e');
-        root.style.setProperty('--bg-color-light', '#a9a9a936');
+        root.style.setProperty('--text-color-light','#e7e7e7');
+        root.style.setProperty('--container-color-light','#252a2f');
+        root.style.setProperty('--button-color-light','#7b7b7b');
+        root.style.setProperty('--hover-color-light','#494949');
         logo.src = './src/img/vax2.png';
     }
 
