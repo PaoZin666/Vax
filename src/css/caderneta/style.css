@@ -1,0 +1,258 @@
+body {
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #dbdbdb;
+}
+:root {
+    --back-color-light: #a3a3a37d;
+    --back-color-dark: #252424;
+    --border-color-light: #00238d;
+    --border-color-dark: #4e4e4e;
+    --text-color-light: #333;
+    --text-color-dark: #e7e7e7;
+    --secondtext-color-light: #e7e7e7;
+    --secondtext-color-dark: #fff;
+    --container-color-light:#fff;
+    --container-color-dark:#252a2f;
+    --month-color-light:#ffffff;
+    --month-color-dark:#818181;
+    --button-color-light: #0056b3;
+    --button-color-dark: #7b7b7b;
+    --hover-color-light:#003877;
+    --hover-color-dark:#494949;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+body.light-mode {
+    background-color: var(--back-color-light);
+}
+body.dark-mode {
+    background-color: var(--back-color-dark);
+}
+
+a,
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-color-light);
+}
+
+header {
+    transition: background-color 0.6s, color 0.6s;
+    background-color: var(--container-color-light);
+    box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 230px;
+}
+
+.cabecalho .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.cabecalho nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 0 3.5vw 0 0;
+    align-items: center;
+}
+.cabecalho nav li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    background: var(--button-color-light);
+    border-radius: 20px;
+    padding: 6px 14px;
+    transition: background-color 0.6s;
+}
+.cabecalho nav li:hover {
+    background-color: var(--hover-color-light);
+}
+
+.logotipo {
+    padding: 0px 3.5vw 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.logotipo svg {
+    opacity: 0;
+    display: none;
+}
+
+main {
+    height: 100vh;
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.forms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 10px 0 0;
+    gap: 8px;
+    align-items: start;
+}
+
+form {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    transition: color 0.6s;
+    background: var(--container-color-light);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #00000094;
+}
+fieldset {
+    transition: color 0.6s;
+    background-color: var(--back-color-light);
+    border: 1px solid rgb(111 111 111);
+    border-radius: 15px;
+    padding: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+legend {
+    transition: color 0.6s;
+    background-color: var(--container-color-light);
+    border: 1px solid rgb(111 111 111);
+    border-radius: 15px;
+    padding: 5px;
+    display: flex;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding: 5px 7px 5px 10px;
+    background: white;
+}
+
+label {
+    font-size: 15px;
+}
+
+input, select {
+    background: rgb(73 73 73 / 10%);
+    width: 70%;
+    border: 1px solid rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    padding: 2px 5px;
+}
+input:focus, select:focus {
+    outline: none;
+}
+
+.nome-vacina {
+    transition: color 0.6s;
+    color: var(--text-color-light);
+    background: none;
+    border: none;
+    font-size: 13px;
+    padding: 0 0 0 10px;
+}
+::-webkit-input-placeholder {
+    color: var(--text-color-light);
+    font-size: 15px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 0;
+    gap: 10px;
+}
+
+.edit,
+.delete {
+    width: 20px;
+}
+
+.edit-button,
+.delete-button,
+.submit-button {
+    transition: background-color 0.6s;
+    background-color: var(--button-color-light);
+    color: var(--secondtext-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    width: 130px;
+    height: 22px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.edit-button:hover,
+.delete-button:hover,
+.submit-button:hover {
+    background-color: var(--hover-color-light);
+}
+
+.add-form-button {
+    position: absolute;
+    margin-top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--button-color-light);
+    transition: background-color 0.6s;
+}
+.add-form-button:hover {
+    background-color: var(--hover-color-light);
+}
+
+
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+#dark-mode-toggle img {
+    width: 24px;
+    height: 24px;
+}

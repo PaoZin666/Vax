@@ -1,10 +1,14 @@
 :root {
-  --back-color-light: white;
-  --back-color-dark: #252a2f;
+  --back-color-light: #dbdbdb;
+  --back-color-dark: #121212;
+  --container-color-light: white;
+  --container-color-dark: #252a2f;
   --text-color-light: #333;
   --text-color-dark: #e7e7e7;
   --button-color-light: #0056b3;
   --button-color-dark: #7b7b7b;
+  --layer-color-light:#002cb1a6;
+  --layer-color-dark:#272727a6;
   --hover-color-light:#004494;
   --hover-color-dark:#494949;
   --light-mode-bg:#66666640;
@@ -22,9 +26,17 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: #dbdbdb;
+  transition: background-color 0.6s, color 0.6s;
 }
 body::-webkit-scrollbar {
   width: 0px;
+}
+
+body.light-mode {
+  background-color: var(--back-color-light);
+}
+body.dark-mode {
+  background-color: var(--back-color-dark);
 }
 
 .container {
@@ -32,7 +44,7 @@ body::-webkit-scrollbar {
   width: 90vw;
   height: 85vh;
   transition: background-color 0.6s, color 0.6s;
-  background-color: var(--back-color-light);
+  background-color: var(--container-color-light);
   box-shadow: rgb(0 0 0 / 30%) 0px 0px 20px;
   border-radius: 8px;
   overflow: hidden;
@@ -48,13 +60,9 @@ body::-webkit-scrollbar {
   overflow: hidden;
 }
 
-.image-section img {
-  height: -webkit-fill-available;
-}
-
 .overlay {
   position: absolute;
-  background:rgba(0, 44, 177, 0.65);
+  background:var(--layer-color-light);
   width: 40%;
   height: 100%;
   left: 0;

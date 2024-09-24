@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Agendamento</title>
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/agendamento/style.css">
+    <link rel="stylesheet" href="./src/css/agendamento/responsive.css">
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logotipo">
+            <a href="./index.html">
+                <img src="./src/img/vax.png" class="logo">
+            </a>
+        </div>
+        <nav>
+            <div class="menu">
+                <ul style="display: flex;justify-content: center;gap: 10px;width: 100%;">
+                </ul>
+                <button id="dark-mode-toggle">
+                    <img id="mode-icon" src="./src/icone/lua.png" width="24" height="24">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="vaccine-selection" style="display: flex;margin-bottom: 15px;gap: 8px;">
+            <button id="covid-btn">Vacinação COVID</button>
+            <button id="h1n1-btn">Vacinação H1N1</button>
+        </div>
+        <div class="calendar-container">
+            <div class="year-navigation">
+                <button id="prevYear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                                        class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                                    </svg>
+                </button>
+                <span id="yearDisplay">2024</span>
+                <button id="nextYear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                                        class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                                    </svg>
+                </button>
+            </div>
+            <div class="months-grid" id="calendarGrid">
+            </div>
+        </div>
+    </main>
+
+    <script src="./src/js/agendamento.js"></script>
+</body>
+
+</html>

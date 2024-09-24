@@ -1,4 +1,31 @@
-@media (max-width: 702px) {
+@media (max-width: 1200px) {
+    .image {
+        width: 100%;
+    }
+}
+@media (max-width: 800px) {
+    .container {
+        height: auto;
+        width: 720px;
+    }
+    .image {
+        height: 200px;
+        margin-bottom: 5px;
+    }
+    .logotipo {
+        padding: 0px 1.5vw 0 18px;
+    }
+    .cabecalho .menu {
+        gap: 8px;
+    }
+    .cabecalho nav li {
+        padding: 6px 13px;
+    }
+    ul {
+        gap: 5px;
+    }
+}
+@media (max-width: 780px) {
     header {
         flex-direction: column;
     }
@@ -33,14 +60,12 @@
     .container {
         height: auto;
         width: 90vw;
-        position: relative;
-        top: 4px;
         padding: 10px 8px;
         border-radius: 32px ;
         gap: 15px;
     }
     i {
-        border: 5px solid #00022457;
+        border: 5px solid #59595966;
         border-radius: 25px;
         width: 250px;
         height: 38px;
@@ -56,7 +81,7 @@
     .image-container {
         position: relative;
     }
-    #zoom-image {
+    .image {
         border-radius: 25px;
         width: 100%;
     }
@@ -90,5 +115,23 @@
     #dark-mode-toggle img {
         width: 24px;
         height: 24px;
+    }
+}
+@media (max-width: 500px) {
+    .modal .fechar-modal {
+        width: 30px;
+        line-height: 30px;
+    }
+    
+    .modal iframe {
+        width: 370px;
+        height: 280px;
+    }
+}
+    
+@media (max-width: 376px) {
+    .modal iframe {
+        width: 330px;
+        height: 230px;
     }
 }

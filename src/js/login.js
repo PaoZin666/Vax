@@ -80,8 +80,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
         if (spanMessage) {
             spanMessage.remove();
         }
-
-        this.submit();
+        window.location.href = './index.html'
     }
 });
 
@@ -98,17 +97,21 @@ const toggleButton = document.getElementById('dark-mode-toggle');
       const isDarkMode = document.body.classList.contains('dark-mode');
 
       if (isDarkMode) {
-        root.style.setProperty('--back-color-light', 'white');
+        root.style.setProperty('--back-color-light', '#dbdbdb');
+        root.style.setProperty('--container-color-light', 'white');
         root.style.setProperty('--text-color-light','#333');
         root.style.setProperty('--button-color-light','#0056b3');
         root.style.setProperty('--hover-color-light','#004494');
+        root.style.setProperty('--layer-color-light','#002cb1a6');
         root.style.setProperty('--light-mode-bg','#66666640');
         logo.src = './src/img/vax.png';
       } else {
-        root.style.setProperty('--back-color-light', '#252a2f');
+        root.style.setProperty('--back-color-light', '#121212');
+        root.style.setProperty('--container-color-light', '#252a2f');
         root.style.setProperty('--text-color-light','#e7e7e7');
         root.style.setProperty('--button-color-light','#7b7b7b');
         root.style.setProperty('--hover-color-light','#494949');
+        root.style.setProperty('--layer-color-light','#272727a6');
         root.style.setProperty('--light-mode-bg','#00000066');
         logo.src = './src/img/vax2.png';
       }

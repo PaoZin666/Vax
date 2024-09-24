@@ -51,3 +51,20 @@ toggleButton.addEventListener('click', () => {
 });
 
 document.body.classList.add('light-mode');
+
+/////////////////////////////////////////////
+
+const botaoTrailer = document.querySelector(".loc");
+const modal = document.querySelector(".modal");
+const botaoFechar = document.querySelector(".fechar-modal");
+
+
+botaoTrailer.addEventListener("click", () => {
+    modal.classList.add("aberto");
+    video.setAttribute("src", "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15550.551715386318!2d-38.495503504465134!3d-12.994994538635694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sunidades%20b%C3%A1sicas%20de%20sa%C3%BAde%20em%20salvador!5e0!3m2!1spt-BR!2sbr!4v1726062533436!5m2!1spt-BR!2sbr")
+});
+
+botaoFechar.addEventListener("click", () => {
+    modal.classList.remove("aberto");
+    video.setAttribute("src", "")
+});

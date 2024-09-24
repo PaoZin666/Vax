@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caderneta de Vacinação</title>
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/caderneta/style.css">
+    <link rel="stylesheet" href="./src/css/caderneta/responsive.css">
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logotipo">
+            <a href="./index.html">
+                <img src="./src/img/vax.png" class="logo">
+            </a>
+        </div>
+        <nav>
+            <div class="menu">
+                <ul style="display: flex;justify-content: center;gap: 10px;width: 100%;">
+                </ul>
+                <button id="dark-mode-toggle">
+                    <img id="mode-icon" src="./src/icone/lua.png" width="24" height="24">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="forms">
+            <form>
+                <fieldset>
+                    <legend>
+                        <Input class="nome-vacina" type="text" placeholder="Nome da Vacina"></Input>
+                    </legend>
+                    <section>
+                        <label for="">Data:</label>
+                        <input type="date">
+                    </section>
+                    <section>
+                        <label for="">Lote:</label>
+                        <input type="text">
+                    </section>
+                    <section>
+                        <label for="">Vencimento:</label>
+                        <input type="date">
+                    </section>
+                    <section>
+                        <label for="">Unidade de Saúde:</label>
+                        <select>
+                            <option value="">Selecione uma unidade</option>
+                            <option value="clinica-da-familia-boca-do-rio">Clínica da Família Boca do Rio</option>
+                            <option value="clinica-da-familia-pau-miudo">Clínica da Família Pau Miúdo</option>
+                            <option value="csb-cabula">CSB Cabula</option>
+                            <option value="csb-itapua">CSB Itapuã</option>
+                            <option value="postinho-da-saude-ribeira">Postinho de Saúde Ribeira</option>
+                            <option value="upas-brotas">UPA Brotas</option>
+                            <option value="upas-itaigara">UPA Itaigara</option>
+                            <option value="upas-pau-miudo">UPA Pau Miúdo</option>
+                            <option value="upas-periperi">UPA Periperi</option>
+                            <option value="upas-san-martin">UPA San Martin</option>
+                            <option value="upas-vale-dos-barris">UPA Vale dos Barris</option>
+                            <option value="usf-barra">Unidade de Saúde da Família Barra</option>
+                            <option value="usf-bonfim">USF Bonfim</option>
+                            <option value="usf-centro-historico">USF Centro Histórico</option>
+                            <option value="usf-itapua">USF Itapuã</option>
+                            <option value="usf-liberdade">USF Liberdade</option>
+                            <option value="usf-luis-anjos">Unidade de Saúde da Família Luís Anjos</option>
+                            <option value="usf-piraja">USF Pirajá</option>
+                            <option value="usf-santa-luzia">USF Santa Luzia</option>
+                        </select>
+                    </section>
+                    <section>
+                        <label for="">Assinatura:</label>
+                        <input type="text">
+                    </section>
+                    <div class="buttons">
+                        <button class="edit-button">
+                            <img src="./src/icone/editar.png" class="edit">
+                        </button>
+                        <button class="submit-button">
+                            Salvar
+                        </button>
+                        <button class="delete-button">
+                            <img src="./src/icone/apagar.png" class="delete">
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <button id="add-form-button" class="add-form-button">
+            <img src="./src/icone/+.png" width="30">
+        </button>
+    </main>
+
+
+    <script src="./src/js/caderneta.js"></script>
+</body>
+
+</html>
