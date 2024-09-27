@@ -18,7 +18,7 @@
         padding: 6px 13px;
     }
     ul {
-        gap: 5px;
+        gap: 10px;
         justify-content: center;
         padding: 0 0 0 0;
     }
@@ -37,14 +37,15 @@
     }
     .cabecalho nav {
         display: none;
-        padding: 0 3.5vw 15px 15px;
+        padding: 0 10px 15px;
     }
     .cabecalho nav li {
         font-weight: 500;
-        font-size: 13px;
-        padding: 4px 9px;
+        font-size: 12px;
+        padding: 2px 13px;
     }
     .logotipo {
+        padding: 0 2.5vw;
         width: 100%;
     }
     .logotipo svg {

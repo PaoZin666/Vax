@@ -140,7 +140,7 @@ form {
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 0 5px #00000094;
-    animation: appear 2s cubic-bezier(0, 1, 1, 1);
+    animation: appear 0.8s cubic-bezier(0, 1, 1, 1);
 }
 @keyframes appear{
     from {

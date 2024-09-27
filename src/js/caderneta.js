@@ -50,23 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
     submitButton.addEventListener('click', function(event) {
         event.preventDefault();
 
-        // Travar os inputs quando salvar
         const inputs = form.querySelectorAll('input, select');
         inputs.forEach(input => {
             input.disabled = true;
         });
 
-        // Adicionar novo formulário
         addNewForm();
 
-        // Impedir a edição após salvar
         isEditable = false;
     });
 
     editButton.addEventListener('click', function(event) {
         event.preventDefault();
 
-        // Permitir edição novamente
         const inputs = form.querySelectorAll('input, select');
         inputs.forEach(input => {
             input.disabled = !isEditable;
@@ -86,22 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
     addFormButton.addEventListener('click', function(event) {
         event.preventDefault();
 
-        // Adicionar novo formulário
         addNewForm();
     });
 
     function addNewForm() {
-        // Clonar o formulário atual
         const newForm = form.cloneNode(true);
 
-        // Habilitar os inputs do novo formulário
         const inputs = newForm.querySelectorAll('input, select');
         inputs.forEach(input => {
             input.disabled = false;
-            input.value = '';  // Limpar o valor dos campos
+            input.value = '';
         });
 
-        // Inserir o novo formulário dentro da div 'forms'
         formsContainer.appendChild(newForm);
     }
 });

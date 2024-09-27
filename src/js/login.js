@@ -1,34 +1,3 @@
-const chaveApi = 'SUA_CHAVE_API'; // Insira aqui a sua chave da API
-
-function consultarCPF(cpf, dataNascimento) {
-    const url = `https://api.infosimples.com.br/v2/consulta-cpf?cpf=${cpf}&birthdate=${dataNascimento}`;
-
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${chaveApi}`,
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            let nomeCompleto = data.nome;
-            let primeiroNome = nomeCompleto.split(" ")[0];
-            document.getElementById('nome-usuario').textContent = `Bem-vindo, ${primeiroNome}`;
-        } else {
-            console.log('Erro na consulta: ', data.message);
-        }
-    })
-    .catch(error => {
-        console.log('Erro na requisição: ', error);
-    });
-}
-consultarCPF('12345678900', '01/01/1980');
-
-
-////////////////////////////////
-
 function formatarCPF(cpf) {
     cpf = cpf.replace(/\D/g, "");
     if (cpf.length > 11) cpf = cpf.substring(0, 11);

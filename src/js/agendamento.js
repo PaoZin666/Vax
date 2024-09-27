@@ -11,7 +11,6 @@ const calendarGrid = document.getElementById('calendarGrid');
 let selectedVaccine = '';
 let selectedDayElement = null;
 
-// Objeto para armazenar as datas de cada vacina
 const vaccineDates = {
     covid: null,
     h1n1: null,
@@ -20,7 +19,6 @@ const vaccineDates = {
 const covidBtn = document.getElementById('covid-btn');
 const h1n1Btn = document.getElementById('h1n1-btn');
 
-// Função utilitária para aplicar temas
 function applyTheme(colors) {
     const root = document.documentElement;
     Object.keys(colors).forEach(key => {
@@ -28,13 +26,11 @@ function applyTheme(colors) {
     });
 }
 
-// Função para atualizar o calendário
 function updateYearDisplay() {
     yearDisplay.textContent = currentYear;
     generateCalendar();
 }
 
-// Limitar a seleção de anos anteriores
 prevYearButton.addEventListener('click', () => {
     if (currentYear > today.getFullYear()) {
         currentYear--;
@@ -47,7 +43,6 @@ nextYearButton.addEventListener('click', () => {
     updateYearDisplay();
 });
 
-// Função para gerar o calendário
 function generateCalendar() {
     calendarGrid.innerHTML = '';
     for (let month = 0; month < 12; month++) {
@@ -74,14 +69,12 @@ function generateCalendar() {
         const firstDay = new Date(currentYear, month, 1).getDay();
         const daysInMonth = new Date(currentYear, month + 1, 0).getDate();
 
-        // Adicionar botões vazios para os dias antes do início do mês
         for (let i = 0; i < firstDay; i++) {
             const emptyDiv = document.createElement('button');
             emptyDiv.classList.add('day', 'disabled');
             daysDiv.appendChild(emptyDiv);
         }
 
-        // Adicionar botões para os dias do mês
         for (let day = 1; day <= daysInMonth; day++) {
             const dayButton = document.createElement('button');
             dayButton.classList.add('day');
@@ -89,12 +82,10 @@ function generateCalendar() {
 
             const selectedDate = new Date(currentYear, month, day);
 
-            // Desabilitar datas anteriores à data atual
             if (selectedDate < today) {
                 dayButton.classList.add('disabled');
                 dayButton.disabled = true;
             } else {
-                // Marcar a data já selecionada para a vacina corrente
                 if (isSelectedDate(day, month, selectedVaccine)) {
                     dayButton.classList.add('selected');
                     selectedDayElement = dayButton;
@@ -110,7 +101,6 @@ function generateCalendar() {
     }
 }
 
-// Função para verificar se o dia e mês correspondem à data selecionada para a vacina atual
 function isSelectedDate(day, month, vaccine) {
     const selectedDate = vaccineDates[vaccine];
     if (!selectedDate) return false;
@@ -119,7 +109,6 @@ function isSelectedDate(day, month, vaccine) {
     return selectedDay === day && selectedMonth === month && selectedYear === currentYear;
 }
 
-// Função para lidar com o clique nos dias
 function handleDayClick(dayButton, day, month) {
     if (selectedDayElement) {
         selectedDayElement.classList.remove('selected');
@@ -127,7 +116,6 @@ function handleDayClick(dayButton, day, month) {
     dayButton.classList.add('selected');
     selectedDayElement = dayButton;
 
-    // Armazenar a data dependendo da vacina selecionada
     vaccineDates[selectedVaccine] = [day, month, currentYear];
     
     const selectedDate = `${day} de ${monthsNames[month]} de ${currentYear}`;
@@ -137,18 +125,16 @@ function handleDayClick(dayButton, day, month) {
 updateYearDisplay();
 
 
-// Aplicar tema ao selecionar vacina
 covidBtn.addEventListener('click', () => {
     selectedVaccine = 'covid';
-    updateYearDisplay(); // Atualizar o calendário para mostrar a data de COVID
+    updateYearDisplay();
 });
 
 h1n1Btn.addEventListener('click', () => {
     selectedVaccine = 'h1n1';
-    updateYearDisplay(); // Atualizar o calendário para mostrar a data da h1n1
+    updateYearDisplay();
 });
 
-// Alternar modo escuro/claro
 const toggleButton = document.getElementById('dark-mode-toggle');
 const modeIcon = document.getElementById('mode-icon');
 const logo = document.querySelector('.logo');
