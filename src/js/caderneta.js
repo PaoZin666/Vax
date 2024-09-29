@@ -41,59 +41,62 @@ document.body.classList.add('light-mode');
 
 ////////////////////////////////////////////////////////////////////////
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    const submitButton = document.querySelector('.submit-button');
-    const editButton = document.querySelector('.edit-button');
-    let isEditable = true;
-
-    submitButton.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        const inputs = form.querySelectorAll('input, select');
-        inputs.forEach(input => {
-            input.disabled = true;
-        });
-
-        addNewForm();
-
-        isEditable = false;
-    });
-
-    editButton.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        const inputs = form.querySelectorAll('input, select');
-        inputs.forEach(input => {
-            input.disabled = !isEditable;
-        });
-
-        isEditable = !isEditable;
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     const addFormButton = document.getElementById('add-form-button');
     const formsContainer = document.querySelector('.forms');
     let isEditable = true;
 
-    addFormButton.addEventListener('click', function(event) {
-        event.preventDefault();
+    // Eventos para o formulário inicial
+    initializeFormEvents(form);
 
+    // Adicionar novo formulário ao clicar no botão "Adicionar"
+    addFormButton.addEventListener('click', function (event) {
+        event.preventDefault();
         addNewForm();
     });
 
-    function addNewForm() {
-        const newForm = form.cloneNode(true);
+    // Função para inicializar eventos de botões de edição e submissão de cada formulário
+    function initializeFormEvents(formElement) {
+        const submitButton = formElement.querySelector('.submit-button');
+        const editButton = formElement.querySelector('.edit-button');
+        const deleteButton = formElement.querySelector('.delete-button');
 
-        const inputs = newForm.querySelectorAll('input, select');
-        inputs.forEach(input => {
-            input.disabled = false;
-            input.value = '';
+        submitButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Previne o comportamento padrão do botão
+            toggleInputs(formElement, false);
+            isEditable = false;
         });
 
-        formsContainer.appendChild(newForm);
+        editButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Previne o comportamento padrão do botão
+            toggleInputs(formElement, !isEditable);
+            isEditable = !isEditable;
+        });
+
+        deleteButton.addEventListener('click', function (event) {
+            event.preventDefault(); // Previne o comportamento padrão do botão
+            if (formElement !== form) {
+                formElement.remove(); // Remove o formulário atual, exceto o original
+            }
+        });
+    }
+
+    // Função para adicionar um novo formulário
+    function addNewForm() {
+        const newForm = form.cloneNode(true); // Clona o formulário original
+        toggleInputs(newForm, true); // Habilita os inputs do novo formulário
+        formsContainer.appendChild(newForm); // Adiciona o novo formulário ao contêiner
+
+        initializeFormEvents(newForm); // Inicializa os eventos para o novo formulário
+    }
+
+    // Função para habilitar ou desabilitar campos de entrada
+    function toggleInputs(formElement, enable) {
+        const inputs = formElement.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.disabled = !enable; // Desabilita ou habilita conforme o valor de enable
+            if (enable) input.value = ''; // Limpa os valores dos campos ao habilitar
+        });
     }
 });
