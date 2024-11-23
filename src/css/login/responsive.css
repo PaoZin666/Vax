@@ -1,11 +1,14 @@
 @media (max-width:1200px) {
+    .container {
+        height: 80vh;
+    }
     .image-section {
         display: none;
     }
 }
 
 @media (max-width:520px) {
-    .container{
+    .container {
         flex-direction: column;
         height: 80vh;
         position: absolute;
