@@ -212,7 +212,7 @@ span {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 8px;
 }
 .day {
     background-color: #ffffff;
