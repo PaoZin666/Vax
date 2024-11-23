@@ -145,7 +145,7 @@ main {
 
 .calendar-container {
     transition: background-color 0.6s;
-    width: 860px;
+    width: 910px;
     padding: 15px;
     background: var(--back-color-light);
     border-radius: 25px;
