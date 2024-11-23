@@ -201,6 +201,7 @@ input:focus, select:focus {
     color: var(--text-color-light);
     background: none;
     border: none;
+    width: 100%;
     font-size: 13px;
     padding: 0 0 0 10px;
 }
