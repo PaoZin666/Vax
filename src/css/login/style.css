@@ -72,13 +72,12 @@ body.dark-mode {
 
 .login-section {
   flex: 1 1 0%;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: stretch;
+    padding: 20px 60px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .marca img {
